@@ -188,3 +188,13 @@ def get_displacement(velocity, time, is_leftwards):
 
     distance = time * velocity
     return -distance if is_leftwards else distance
+
+
+def get_next_index(current_index, max_index):
+    next_index = current_index + 1
+    return next_index if next_index <= max_index else 0
+
+
+def get_prev_index(current_index):
+    prev_index = current_index - 1
+    return prev_index if prev_index > 0 else 0
