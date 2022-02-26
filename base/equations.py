@@ -1,3 +1,5 @@
+import pygame.draw_py
+
 from base.quadratic_equations import *
 from base.important_variables import *
 from base.colors import *
@@ -33,6 +35,7 @@ class LineSegment:
     start_point = 0
     end_point = 0
     color = purple
+    width = 10
 
     def __init__(self, start_point: Point, end_point: Point):
         """ summary: initializes the object
@@ -60,7 +63,7 @@ class LineSegment:
 
         pygame.draw_py.draw_line(game_window.get_window(), self.color,
                                  (int(self.start_point.x_coordinate), int(self.start_point.y_coordinate)),
-                                 (int(self.end_point.x_coordinate), int(self.end_point.y_coordinate)), 9)
+                                 (int(self.end_point.x_coordinate), int(self.end_point.y_coordinate)), self.width)
 
     def get_y_coordinate(self, x_coordinate):
         """ summary: finds the y_coordinate using the equation y = mx + b

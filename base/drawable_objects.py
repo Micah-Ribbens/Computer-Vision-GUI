@@ -119,18 +119,17 @@ class GameObject(Component):
             params: None
             returns: None
         """
-
         pygame.draw.rect(game_window.get_window(), self.color, (self.x_coordinate,
                          self.y_coordinate, self.length, self.height))
 
     # Purely for debugging purposes; so you can see the location and size of game objects
-    def str(self):
+    def __str__(self):
         """ summary: for debugging and it displays the x_coordinate, y_coordinate, length, height, bottom, and right_edge of the game_object
             params: None
             returns: None
         """
 
-        print(f"name {self.name} x {self.x_coordinate} y {self.y_coordinate} length {self.length} height {self.height} bottom {self.bottom} right_edge {self.right_edge}\n")
+        return f"name {self.name} x {self.x_coordinate} y {self.y_coordinate} length {self.length} height {self.height} bottom {self.bottom} right_edge {self.right_edge}\n"
 
     def draw_in_segments(object, segments):
         """ summary: draws all the segments provided and uses the object's attributes to turn the percentages into numbers

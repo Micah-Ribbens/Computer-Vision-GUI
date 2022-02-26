@@ -21,5 +21,6 @@ class LineFinder:
             else:
                 current_line += ch
 
+        lines.append(current_line)
         file.close()
         return lines

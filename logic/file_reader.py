@@ -1,6 +1,5 @@
 from logic.line_finder import LineFinder
-
-
+# TODO test how the GUI looks
 class FileReader:
     name_to_data = {}
 
@@ -12,6 +11,7 @@ class FileReader:
 
             name = line[:delimeter_start]
             data = line[delimeter_start + 1:]
+            print(name)
 
             self.name_to_data[name] = data
     
@@ -25,13 +25,12 @@ class FileReader:
         number_list = []
         for ch in data[1:-1]:
             if ch == ",":
-                number_list.append(int(current_item))
+                number_list.append(float(current_item))
                 current_item = ""
             
             else:
                 current_item += ch
-        number_list.append(int(current_item))
         return number_list
     
     def get_int(self, item_name):
-        return int(self.name_to_data[item_name]])
+        return int(self.name_to_data[item_name])
