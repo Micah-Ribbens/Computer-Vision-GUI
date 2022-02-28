@@ -93,47 +93,13 @@ class Window:
             returns: None
         """
         self.get_window().fill(self.background_color)
-        selected_component = None
-        all_components = []
         for screen in self.screens:
             if screen.is_visible:
                 screen.run()
 
-            else:
-                continue
-
-            all_components += screen.get_components()
             for component in screen.get_components():
-                if self.component_is_selected(component):
-                    selected_component = component
-
-                if component.is_runnable:
-                    component.run()
-
-                if component.is_visible:
+                if screen.is_visible:
                     component.render()
-
-        for component in self.components:
-            # Only visible components should be displayed onto the screen
-            if component.is_visible:
-                component.render()
-
-            else:
-                continue
-
-            if component.is_runnable:
-                component.run()
-
-            if self.component_is_selected(component):
-                selected_component = component
-
-        for component in all_components + self.components:
-            if selected_component is not None:
-                component.is_selected = False
-
-        # All component's is_selected is set to False so this sets the selected_component.is_selected to True
-        if selected_component is not None:
-            selected_component.is_selected = True
 
         pygame.display.update()
 
@@ -158,21 +124,9 @@ class Window:
 
             returns: None
         """
-        for component in self.components:
-            component.is_visible = False
-
         for screen in self.screens:
-            if screen != visible_screen:
-                screen.is_visible = False
-            else:
-                screen.is_visible = True
-
-            for component in screen.get_components():
-                if screen != visible_screen:
-                    component.is_visible = False
-
-                else:
-                    component.is_visible  = True
+            screen.is_visible = False
+        visible_screen.is_visible = True
 
     def display_components(self, components):
         """ summary: makes everything on the screen disappear except the component(s) in components

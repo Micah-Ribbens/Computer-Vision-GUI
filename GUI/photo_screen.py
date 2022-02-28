@@ -16,8 +16,9 @@ class PhotoScreen(Screen):
     components = []
 
     def __init__(self, objects, objects_of_interest, screen_number, total_amount_of_screens):
+        self.components = []
         self.photo_number_box = TextBox(f"Test Screen Number: {screen_number}/{total_amount_of_screens}", 15, False, blue, white)
-        self.amount_of_objects_box = TextBox(f"Amount Of Objects: {len(objects)}", 15, False, green, white)
+        self.amount_of_objects_box = TextBox(f"Amount Of Objects: {len(objects)}", 15, False, brown, white)
         self.amount_of_objects_of_interest_box = TextBox(f"Amount of Objects of Interest: {len(objects_of_interest)}", 15, False, purple, white)
         # TODO figure out the lenght and height of the images
         top_bar_height = screen_height - 480

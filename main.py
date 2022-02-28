@@ -1,5 +1,7 @@
 from GUI.photo_screen import PhotoScreen
 from base.drawable_objects import GameObject
+from base.events import Event
+from base.utility_classes import HistoryKeeper
 from base.velocity_calculator import VelocityCalculator
 from gui_components.outline import Outline
 from gui_components.text_box import TextBox
@@ -35,7 +37,8 @@ for test_number in range(amount_of_tests):
     screens.append(screen)
 
 current_index = 0
-
+right_clicked_last_cycle = False
+left_clicked_last_cycle = False
 while True:
     controls = pygame.key.get_pressed()
     mods = pygame.key.get_mods()
@@ -44,11 +47,14 @@ while True:
         if event.type == pygame.QUIT:
             pygame.quit()
 
-    if controls[pygame.K_LEFT]:
+    if not left_clicked_last_cycle and controls[pygame.K_LEFT]:
         current_index = get_prev_index(current_index)
     
-    if controls[pygame.K_RIGHT]:
+    if not right_clicked_last_cycle and controls[pygame.K_RIGHT]:
         current_index = get_next_index(current_index, len(screens) - 1)
+
+    right_clicked_last_cycle = controls[pygame.K_RIGHT]
+    left_clicked_last_cycle = controls[pygame.K_LEFT]
     game_window.display_screen(screens[current_index])
     game_window.run()
 

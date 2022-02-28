@@ -1,5 +1,6 @@
 from base.equations import LineSegment, Point
 from gui_components.component import Component
+from base.colors import *
 
 
 class Outline(Component):
@@ -17,11 +18,11 @@ class Outline(Component):
             LineSegment(Point(x_coordinate, y_coordinate), Point(x_coordinate, y_coordinate + height)),
             LineSegment(Point(x_coordinate, y_coordinate + height), Point(x_coordinate + length, y_coordinate + height)),
             LineSegment(Point(x_coordinate + length, y_coordinate), Point(x_coordinate + length, y_coordinate + height))
-
         ]
 
     def render(self):
         for line in self.lines:
+            line.color = red
             line.render()
 
 

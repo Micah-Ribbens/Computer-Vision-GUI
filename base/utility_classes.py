@@ -69,7 +69,7 @@ class HistoryKeeper:
             returns: the version of the object from the last cycle
         """
 
-        return HistoryKeeper.last_objects.get(f"{name}{HistoryKeeper.last_time}")
+        return HistoryKeeper.last_objects.get(f"{name}{HistoryKeeper.get_last_time()}")
 
     def get_last_time():
         """ summary: gets the time from the last cycle

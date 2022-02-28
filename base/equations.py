@@ -35,7 +35,7 @@ class LineSegment:
     start_point = 0
     end_point = 0
     color = purple
-    width = 10
+    width = 5
 
     def __init__(self, start_point: Point, end_point: Point):
         """ summary: initializes the object
