@@ -12,7 +12,6 @@ class Outline(Component):
 
     def __init__(self, x_coordinate, y_coordinate, length, height):
         super().__init__(x_coordinate, y_coordinate, length, height)
-        print(x_coordinate, y_coordinate, length, height)
         self.lines = [
             LineSegment(Point(x_coordinate, y_coordinate), Point(x_coordinate + length, y_coordinate)),
             LineSegment(Point(x_coordinate, y_coordinate), Point(x_coordinate, y_coordinate + height)),

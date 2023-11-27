@@ -96,10 +96,8 @@ class Window:
         for screen in self.screens:
             if screen.is_visible:
                 screen.run()
+                screen.render()
 
-            for component in screen.get_components():
-                if screen.is_visible:
-                    component.render()
 
         pygame.display.update()
 

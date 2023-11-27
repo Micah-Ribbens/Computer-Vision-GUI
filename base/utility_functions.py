@@ -195,9 +195,10 @@ def get_next_index(current_index, max_index):
     return next_index if next_index <= max_index else 0
 
 
-def get_prev_index(current_index):
+def get_prev_index(current_index, max_index):
     prev_index = current_index - 1
-    return prev_index if prev_index > 0 else 0
+
+    return prev_index if prev_index > 0 else max_index
 
 
 def get_min_number(number_list):

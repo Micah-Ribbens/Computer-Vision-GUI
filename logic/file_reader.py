@@ -8,10 +8,8 @@ class FileReader:
 
         for line in lines:
             delimeter_start = line.index(":")
-
             name = line[:delimeter_start]
             data = line[delimeter_start + 1:]
-            print(name)
 
             self.name_to_data[name] = data
     
@@ -34,3 +32,9 @@ class FileReader:
     
     def get_int(self, item_name):
         return int(self.name_to_data[item_name])
+
+    def get_double(self, item_name):
+        return float(self.name_to_data[item_name])
+
+    def get_boolean(self, item_name):
+        return self.name_to_data[item_name] == "True"
